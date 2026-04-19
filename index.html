@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Armor of God — Ephesians 6:10–20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bronze: #b08d57;
+    --bronze-light: #d4a574;
+    --bronze-dark: #7a5c35;
+    --navy: #0f1a2e;
+    --navy-deep: #060c1a;
+    --navy-mid: #1a2844;
+    --parchment: #f2e6cf;
+    --parchment-dark: #d9c9a8;
+    --crimson: #8b2525;
+    --crimson-light: #b33838;
+    --gold: #e8c872;
+    --ink: #2b1f14;
+    --shadow: rgba(0, 0, 0, 0.6);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: var(--navy-deep);
+    color: var(--parchment);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Atmospheric background layers */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(176, 141, 87, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(139, 37, 37, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(26, 40, 68, 0.4) 0%, var(--navy-deep) 70%);
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.7 0 0 0 0 0.55 0 0 0 0 0.34 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(6, 12, 26, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(176, 141, 87, 0.25);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.25em;
+    color: var(--bronze-light);
+    text-transform: uppercase;
+  }
+
+  .nav-brand span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--parchment);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.2rem;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--bronze);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--bronze-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+  }
+
+  .hero-ornament {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+    margin: 1rem auto;
+    position: relative;
+  }
+
+  .hero-ornament::before {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--gold);
+    background: var(--navy-deep);
+    padding: 0 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.5em;
+    color: var(--bronze-light);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  h1.hero-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 1;
+    color: var(--parchment);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0.5rem 0;
+    animation: fadeUp 1s ease 0.4s both;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  h1.hero-title .gold {
+    background: linear-gradient(180deg, var(--gold) 0%, var(--bronze) 60%, var(--bronze-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    font-size: 1.2em;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-verse {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    color: var(--parchment-dark);
+    max-width: 700px;
+    margin: 2rem auto;
+    animation: fadeUp 1s ease 0.7s both;
+    line-height: 1.6;
+  }
+
+  .hero-verse-ref {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--bronze);
+    margin-top: 1rem;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 1px solid var(--bronze);
+    color: var(--bronze-light);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 1s ease 1s both;
+    cursor: pointer;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(232, 200, 114, 0.25), transparent);
+    transition: left 0.7s ease;
+  }
+
+  .hero-cta:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(176, 141, 87, 0.1);
+  }
+
+  .hero-cta:hover::before { left: 100%; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scripture Passage Section */
+  .passage {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 4rem 2rem;
+    position: relative;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.5em;
+    color: var(--bronze);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    color: var(--parchment);
+    margin-bottom: 3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .scroll-container {
+    background:
+      linear-gradient(180deg, rgba(242, 230, 207, 0.98) 0%, rgba(217, 201, 168, 0.98) 100%);
+    color: var(--ink);
+    padding: 4rem 3rem;
+    border-radius: 4px;
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.6),
+      inset 0 0 100px rgba(139, 37, 37, 0.05);
+    position: relative;
+    font-family: 'IM Fell English', serif;
+    font-size: 1.15rem;
+    line-height: 2;
+  }
+
+  .scroll-container::before,
+  .scroll-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(139, 37, 37, 0.15), transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(139, 37, 37, 0.1), transparent 50%);
+  }
+  .scroll-container::before { top: 0; }
+  .scroll-container::after { bottom: 0; transform: scaleY(-1); }
+
+  .scroll-container p {
+    margin-bottom: 1.2rem;
+  }
+
+  .verse-num {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--crimson);
+    font-size: 0.7rem;
+    vertical-align: super;
+    margin-right: 0.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  .scroll-container .highlight {
+    background: linear-gradient(120deg, rgba(232, 200, 114, 0.3) 0%, rgba(232, 200, 114, 0.5) 100%);
+    padding: 0 0.2rem;
+    font-weight: 500;
+  }
+
+  /* Armor Pieces */
+  .armor-section {
+    padding: 6rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .armor-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    font-size: 1.15rem;
+    color: var(--parchment-dark);
+    font-style: italic;
+  }
+
+  .armor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .armor-card {
+    background: linear-gradient(180deg, rgba(26, 40, 68, 0.8) 0%, rgba(15, 26, 46, 0.95) 100%);
+    border: 1px solid rgba(176, 141, 87, 0.3);
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .armor-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(232, 200, 114, 0.06) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .armor-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(232, 200, 114, 0.15);
+  }
+
+  .armor-card:hover::before { opacity: 1; }
+
+  .armor-icon {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, rgba(176, 141, 87, 0.15) 0%, transparent 70%);
+    border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+    position: relative;
+  }
+
+  .armor-icon svg {
+    width: 110px;
+    height: 110px;
+    filter: drop-shadow(0 4px 20px rgba(232, 200, 114, 0.3));
+    transition: transform 0.5s ease;
+  }
+
+  .armor-card:hover .armor-icon svg {
+    transform: scale(1.1) rotate(-2deg);
+  }
+
+  .armor-number {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--bronze);
+    opacity: 0.7;
+  }
+
+  .armor-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .armor-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+
+  .armor-represents {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: var(--bronze-light);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .armor-verse {
+    font-size: 0.95rem;
+    color: var(--parchment-dark);
+    margin-bottom: 1rem;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .armor-expand {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--bronze);
+    text-transform: uppercase;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(176, 141, 87, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .armor-expand::after {
+    content: '→';
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .armor-card:hover .armor-expand::after {
+    transform: translateX(6px);
+  }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 12, 26, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .modal {
+    background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+    border: 1px solid var(--bronze);
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+
+  .modal-overlay.active .modal {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--bronze-light);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+  }
+
+  .modal-close:hover { color: var(--gold); }
+
+  .modal h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .modal-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: var(--bronze-light);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+  }
+
+  .modal h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--bronze-light);
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin: 1.8rem 0 0.8rem;
+  }
+
+  .modal p {
+    margin-bottom: 1rem;
+    color: var(--parchment);
+  }
+
+  .modal ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .modal ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .modal ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--bronze);
+  }
+
+  .cross-ref {
+    background: rgba(176, 141, 87, 0.08);
+    border-left: 3px solid var(--bronze);
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+    font-style: italic;
+    color: var(--parchment);
+    font-size: 0.98rem;
+  }
+
+  .cross-ref strong {
+    display: block;
+    font-style: normal;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.4rem;
+  }
+
+  .reflection-box {
+    background: linear-gradient(135deg, rgba(139, 37, 37, 0.1), rgba(176, 141, 87, 0.08));
+    border: 1px solid rgba(176, 141, 87, 0.25);
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .reflection-box p {
+    color: var(--parchment-dark);
+    font-style: italic;
+  }
+
+  /* Study Tools Section */
+  .tools-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-deep) 100%);
+    position: relative;
+  }
+
+  .tools-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tool-card {
+    background: rgba(15, 26, 46, 0.6);
+    border: 1px solid rgba(176, 141, 87, 0.25);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--parchment);
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+  }
+
+  .tool-card:hover {
+    border-color: var(--gold);
+    background: rgba(26, 40, 68, 0.8);
+    transform: translateY(-4px);
+  }
+
+  .tool-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--bronze-light);
+  }
+
+  .tool-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .tool-card p {
+    font-size: 0.95rem;
+    color: var(--parchment-dark);
+    margin-bottom: 0.8rem;
+  }
+
+  .tool-link {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--bronze);
+    text-transform: uppercase;
+  }
+
+  /* Deep Study */
+  .deep-study {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .study-accordion {
+    border-top: 1px solid rgba(176, 141, 87, 0.2);
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+  }
+
+  .accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--parchment);
+    padding: 1.8rem 0;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+  }
+
+  .accordion-header:hover { color: var(--gold); }
+
+  .accordion-header .plus {
+    color: var(--bronze);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+    font-weight: 300;
+  }
+
+  .accordion-item.active .plus {
+    transform: rotate(45deg);
+    color: var(--gold);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .accordion-inner {
+    padding: 0 0 2rem 0;
+    color: var(--parchment-dark);
+    font-size: 1.05rem;
+  }
+
+  .accordion-inner h5 {
+    font-family: 'Cinzel', serif;
+    color: var(--bronze-light);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 1.2rem 0 0.5rem;
+  }
+
+  .accordion-inner p { margin-bottom: 1rem; }
+
+  /* Reflection Section */
+  .reflection-section {
+    padding: 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .reflection-question {
+    background: linear-gradient(135deg, rgba(15, 26, 46, 0.8), rgba(26, 40, 68, 0.6));
+    border: 1px solid rgba(176, 141, 87, 0.25);
+    padding: 2.5rem;
+    margin: 1.5rem 0;
+    text-align: left;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .reflection-question:hover {
+    border-color: var(--bronze);
+    transform: translateX(4px);
+  }
+
+  .reflection-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--bronze);
+    margin-bottom: 0.8rem;
+  }
+
+  .reflection-text {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--parchment);
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  footer {
+    padding: 4rem 2rem 2rem;
+    background: var(--navy-deep);
+    border-top: 1px solid rgba(176, 141, 87, 0.2);
+    text-align: center;
+  }
+
+  .footer-ornament {
+    color: var(--bronze);
+    font-size: 1.5rem;
+    letter-spacing: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-verse {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: var(--parchment-dark);
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    font-size: 1.05rem;
+  }
+
+  .footer-ref {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+  }
+
+  .footer-credit {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--bronze);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.2em;
+  }
+
+  /* Quiz Section */
+  .quiz-section {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .quiz-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--parchment-dark);
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+
+  .quiz-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.3);
+    flex-wrap: wrap;
+  }
+
+  .quiz-tab {
+    flex: 1;
+    min-width: 180px;
+    background: transparent;
+    border: 1px solid rgba(176, 141, 87, 0.2);
+    border-bottom: none;
+    color: var(--parchment-dark);
+    padding: 1.3rem 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+  }
+
+  .quiz-tab .tab-level {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--bronze);
+    margin-bottom: 0.3rem;
+  }
+
+  .quiz-tab:hover {
+    color: var(--gold);
+    background: rgba(176, 141, 87, 0.05);
+  }
+
+  .quiz-tab.active {
+    color: var(--gold);
+    background: linear-gradient(180deg, rgba(232, 200, 114, 0.08) 0%, transparent 100%);
+    border-color: var(--bronze);
+  }
+
+  .quiz-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .quiz-panel {
+    display: none;
+    padding: 2.5rem 0;
+    animation: fadeUp 0.5s ease;
+  }
+
+  .quiz-panel.active { display: block; }
+
+  .quiz-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.15);
+  }
+
+  .quiz-header h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .quiz-header p {
+    color: var(--parchment-dark);
+    font-style: italic;
+  }
+
+  .quiz-progress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--bronze);
+    text-transform: uppercase;
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 3px;
+    background: rgba(176, 141, 87, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--bronze), var(--gold));
+    transition: width 0.4s ease;
+  }
+
+  .question-card {
+    background: linear-gradient(180deg, rgba(26, 40, 68, 0.6) 0%, rgba(15, 26, 46, 0.8) 100%);
+    border: 1px solid rgba(176, 141, 87, 0.25);
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .question-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--bronze);
+    margin-bottom: 0.8rem;
+  }
+
+  .question-text {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.2rem;
+    color: var(--parchment);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .question-text em {
+    color: var(--bronze-light);
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .option {
+    background: rgba(15, 26, 46, 0.5);
+    border: 1px solid rgba(176, 141, 87, 0.2);
+    color: var(--parchment);
+    padding: 1rem 1.3rem;
+    text-align: left;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    line-height: 1.5;
+  }
+
+  .option:hover:not(:disabled) {
+    border-color: var(--bronze);
+    background: rgba(26, 40, 68, 0.7);
+    transform: translateX(3px);
+  }
+
+  .option:disabled { cursor: default; }
+
+  .option .letter {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--bronze);
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+
+  .option.correct {
+    border-color: #6b8e4e;
+    background: rgba(107, 142, 78, 0.15);
+    color: #d4e5b5;
+  }
+
+  .option.correct .letter { color: #a4c47c; }
+
+  .option.incorrect {
+    border-color: var(--crimson);
+    background: rgba(139, 37, 37, 0.15);
+    color: #e8b5b5;
+  }
+
+  .option.incorrect .letter { color: var(--crimson-light); }
+
+  .option.dimmed {
+    opacity: 0.45;
+  }
+
+  .feedback {
+    margin-top: 1.2rem;
+    padding: 1.2rem 1.4rem;
+    background: rgba(176, 141, 87, 0.08);
+    border-left: 3px solid var(--bronze);
+    display: none;
+    animation: fadeUp 0.4s ease;
+  }
+
+  .feedback.show { display: block; }
+
+  .feedback-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .feedback-text {
+    color: var(--parchment);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .feedback-text em {
+    color: var(--bronze-light);
+    font-style: italic;
+  }
+
+  .feedback-ref {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--bronze);
+  }
+
+  .quiz-results {
+    display: none;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(180deg, rgba(26, 40, 68, 0.8) 0%, rgba(15, 26, 46, 0.95) 100%);
+    border: 1px solid var(--bronze);
+    animation: fadeUp 0.6s ease;
+  }
+
+  .quiz-results.show { display: block; }
+
+  .results-score {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--bronze) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1rem 0;
+  }
+
+  .results-verdict {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--parchment);
+    margin-bottom: 1rem;
+  }
+
+  .results-verse {
+    color: var(--parchment-dark);
+    font-style: italic;
+    max-width: 500px;
+    margin: 1rem auto;
+    line-height: 1.6;
+  }
+
+  .reset-btn {
+    margin-top: 1.5rem;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    border: 1px solid var(--bronze);
+    color: var(--bronze-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .reset-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(176, 141, 87, 0.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav { padding: 0.8rem 1rem; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--navy-deep);
+      flex-direction: column;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--bronze);
+      gap: 1rem;
+    }
+    .nav-links.open { display: flex; }
+    .menu-toggle { display: block; }
+    .scroll-container { padding: 2.5rem 1.5rem; font-size: 1.05rem; }
+    .modal { padding: 2rem 1.5rem; }
+    .modal h3 { font-size: 1.5rem; }
+    .armor-section, .tools-section, .deep-study, .reflection-section { padding: 4rem 1rem; }
+    .quiz-section { padding: 4rem 1rem; }
+    .question-card { padding: 1.5rem 1.2rem; }
+    .question-text { font-size: 1.05rem; }
+    .quiz-tab { min-width: 100%; border-bottom: 1px solid rgba(176, 141, 87, 0.2); }
+    .quiz-tab.active::after { display: none; }
+    .results-score { font-size: 2.5rem; }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">The Armor <span>of God</span></div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#passage">Scripture</a></li>
+    <li><a href="#armor">The Armor</a></li>
+    <li><a href="#tools">Study Tools</a></li>
+    <li><a href="#deep">Deep Study</a></li>
+    <li><a href="#quizzes">Quizzes</a></li>
+    <li><a href="#reflection">Reflect</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">A Study in Ephesians 6:10–20</div>
+  <div class="hero-ornament"></div>
+  <h1 class="hero-title">
+    Put On
+    <span class="gold">The Armor</span>
+    of God
+  </h1>
+  <div class="hero-ornament"></div>
+  <p class="hero-verse">
+    "Finally, be strong in the Lord and in his mighty power. Put on the full armor of God, so that you can take your stand against the devil's schemes."
+    <span class="hero-verse-ref">— Ephesians 6:10–11 NIV</span>
+  </p>
+  <a href="#passage" class="hero-cta">Begin the Study</a>
+</section>
+
+<!-- Scripture Passage -->
+<section id="passage" class="passage reveal">
+  <div class="section-label">The Passage</div>
+  <h2 class="section-title">Ephesians 6:10–20</h2>
+  <div class="scroll-container">
+    <p><span class="verse-num">10</span>Finally, be strong in the Lord and in his mighty power. <span class="verse-num">11</span><span class="highlight">Put on the full armor of God</span>, so that you can take your stand against the devil's schemes. <span class="verse-num">12</span>For our struggle is not against flesh and blood, but against the rulers, against the authorities, against the powers of this dark world and against the spiritual forces of evil in the heavenly realms.</p>
+    <p><span class="verse-num">13</span>Therefore put on the full armor of God, so that when the day of evil comes, you may be able to stand your ground, and after you have done everything, to stand. <span class="verse-num">14</span>Stand firm then, <span class="highlight">with the belt of truth buckled around your waist</span>, <span class="highlight">with the breastplate of righteousness in place</span>, <span class="verse-num">15</span>and <span class="highlight">with your feet fitted with the readiness that comes from the gospel of peace</span>.</p>
+    <p><span class="verse-num">16</span>In addition to all this, take up <span class="highlight">the shield of faith</span>, with which you can extinguish all the flaming arrows of the evil one. <span class="verse-num">17</span>Take <span class="highlight">the helmet of salvation</span> and <span class="highlight">the sword of the Spirit, which is the word of God</span>.</p>
+    <p><span class="verse-num">18</span>And pray in the Spirit on all occasions with all kinds of prayers and requests. With this in mind, be alert and always keep on praying for all the Lord's people. <span class="verse-num">19</span>Pray also for me, that whenever I speak, words may be given me so that I will fearlessly make known the mystery of the gospel, <span class="verse-num">20</span>for which I am an ambassador in chains. Pray that I may declare it fearlessly, as I should.</p>
+  </div>
+</section>
+
+<!-- Armor Pieces -->
+<section id="armor" class="armor-section reveal">
+  <div class="section-label">The Six Pieces</div>
+  <h2 class="section-title">The Soldier's Equipment</h2>
+  <p class="armor-intro">Paul, writing from a Roman prison and likely chained to a soldier, draws on imagery his readers knew intimately. Each piece of the armor points to a spiritual reality that equips the believer to stand firm. Click each piece to study deeper.</p>
+
+  <div class="armor-grid" id="armorGrid">
+    <!-- Cards injected by JS -->
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- Study Tools -->
+<section id="tools" class="tools-section reveal">
+  <div class="section-label">Study Resources</div>
+  <h2 class="section-title">Tools for Deeper Study</h2>
+  <div class="tools-grid">
+    <a href="https://www.biblegateway.com/passage/?search=Ephesians+6%3A10-20&version=NIV" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">📖</div>
+      <h4>Bible Gateway</h4>
+      <p>Compare the passage across dozens of translations (NIV, ESV, KJV, NLT, etc.)</p>
+      <span class="tool-link">Open Resource →</span>
+    </a>
+    <a href="https://www.blueletterbible.org/niv/eph/6/10" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">🔍</div>
+      <h4>Blue Letter Bible</h4>
+      <p>Study the original Greek words, lexicons, and verse-by-verse interlinear text.</p>
+      <span class="tool-link">Open Resource →</span>
+    </a>
+    <a href="https://biblehub.com/ephesians/6-11.htm" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">✧</div>
+      <h4>Bible Hub</h4>
+      <p>Cross-references, parallel translations, and commentary from multiple scholars.</p>
+      <span class="tool-link">Open Resource →</span>
+    </a>
+    <a href="https://enduringword.com/bible-commentary/ephesians-6/" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">📜</div>
+      <h4>Enduring Word</h4>
+      <p>Detailed, verse-by-verse commentary by David Guzik — excellent for teaching prep.</p>
+      <span class="tool-link">Open Resource →</span>
+    </a>
+    <a href="https://www.biblegateway.com/resources/matthew-henry/Eph.6.10-Eph.6.20" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">⚔</div>
+      <h4>Matthew Henry</h4>
+      <p>Classic Puritan commentary offering rich spiritual application to the passage.</p>
+      <span class="tool-link">Open Resource →</span>
+    </a>
+    <a href="https://www.gotquestions.org/full-armor-of-God.html" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">❋</div>
+      <h4>Got Questions</h4>
+      <p>Accessible overview answering common questions about the armor of God.</p>
+      <span class="tool-link">Open Resource →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Deep Study Accordion -->
+<section id="deep" class="deep-study reveal">
+  <div class="section-label">Context & Background</div>
+  <h2 class="section-title">Historical & Theological Depth</h2>
+
+  <div class="study-accordion">
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Who wrote Ephesians, and why?</span>
+        <span class="plus">+</span>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>Paul wrote Ephesians around AD 60–62 during his Roman imprisonment (Ephesians 3:1, 4:1, 6:20). The letter was likely a circular letter meant for the church in Ephesus and other congregations in Asia Minor.</p>
+          <p>The first three chapters focus on <em>who we are in Christ</em> — chosen, adopted, redeemed, seated with Him in the heavenly realms. The last three chapters teach us how to <em>live out</em> that identity. The armor of God passage is the climactic call to action: because of who you are in Christ (chapters 1–3) and how you are called to live (chapters 4–6), stand firm against the enemy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Why Roman military imagery?</span>
+        <span class="plus">+</span>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>Paul was likely chained to a Roman soldier as he dictated this letter (Acts 28:16, 20). The imagery would have been vivid to both writer and reader. The Roman legionary was the most formidable soldier of the ancient world, and every piece of his equipment had a specific defensive or offensive purpose.</p>
+          <p>But Paul also draws on the Old Testament. Much of this imagery comes directly from Isaiah, where God Himself is described as wearing armor:</p>
+          <div class="cross-ref">
+            <strong>Isaiah 59:17</strong>
+            "He put on righteousness as his breastplate, and the helmet of salvation on his head; he put on the garments of vengeance and wrapped himself in zeal as in a cloak."
+          </div>
+          <div class="cross-ref">
+            <strong>Isaiah 11:5</strong>
+            "Righteousness will be his belt and faithfulness the sash around his waist."
+          </div>
+          <p>The armor we are called to wear is God's own armor. We stand in His strength, not ours.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>What does "stand firm" mean?</span>
+        <span class="plus">+</span>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>The Greek word for "stand" (<em>stēnai</em>) appears four times in this passage (vv. 11, 13, 14). It is a defensive military term — to hold one's ground, to not retreat. Paul is not calling believers to charge into enemy territory on their own initiative. He is calling us to hold the position Christ has already won.</p>
+          <p>The victory is already accomplished (Colossians 2:15). Our job is to stand in it. This is a posture of confident dependence, not anxious effort.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Who is the real enemy?</span>
+        <span class="plus">+</span>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>Verse 12 is crucial: "For our struggle is not against flesh and blood, but against the rulers, against the authorities, against the powers of this dark world and against the spiritual forces of evil in the heavenly realms."</p>
+          <p>This reframes every conflict a believer faces. The coworker who wrongs you, the family member who hurts you, the neighbor who opposes you — these are not the enemy. There are spiritual realities behind human opposition, and the armor of God is designed to help us fight those unseen battles through prayer, truth, and faith, not by attacking people.</p>
+          <div class="cross-ref">
+            <strong>2 Corinthians 10:3–4</strong>
+            "For though we live in the world, we do not wage war as the world does. The weapons we fight with are not the weapons of the world. On the contrary, they have divine power to demolish strongholds."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>The role of prayer (vv. 18–20)</span>
+        <span class="plus">+</span>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>Prayer is not a seventh piece of armor — it is the atmosphere in which all the armor functions. Notice Paul's language: "pray <em>in the Spirit</em> on <em>all</em> occasions with <em>all</em> kinds of prayers and requests." The repetition of "all" (four times in verse 18 in the Greek) is striking.</p>
+          <p>Paul also asks prayer for himself — that he would speak <em>fearlessly</em>. Even the apostle, wearing the full armor of God, needed the prayers of the saints. Spiritual warfare is a team activity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Defensive pieces vs. offensive weapons</span>
+        <span class="plus">+</span>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>Five of the six pieces are defensive: belt, breastplate, shoes, shield, helmet. Only the sword is offensive. The emphasis is clearly on standing firm rather than attacking.</p>
+          <p>But even the "sword of the Spirit" — the <em>rhema</em> (spoken word) of God — was Jesus' own weapon against Satan in the wilderness. Three times He responded "It is written…" (Matthew 4). The Word of God, spoken in faith, pushes back the enemy. This is why Scripture memorization and meditation matter so deeply.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quizzes -->
+<section id="quizzes" class="quiz-section reveal">
+  <div class="section-label">Test Your Understanding</div>
+  <h2 class="section-title">Three Quizzes, Three Depths</h2>
+  <p class="quiz-intro">Work through each level at your own pace. The foundational quiz locks in what each piece is and means; the intermediate tests your grasp of the passage's theology and application; the advanced goes into Greek, Old Testament roots, and exegetical depth — the kind of questions asked in seminary.</p>
+
+  <div class="quiz-tabs">
+    <button class="quiz-tab active" onclick="switchQuiz('foundational')">
+      <span class="tab-level">Level I</span>
+      Foundational
+    </button>
+    <button class="quiz-tab" onclick="switchQuiz('intermediate')">
+      <span class="tab-level">Level II</span>
+      Intermediate
+    </button>
+    <button class="quiz-tab" onclick="switchQuiz('advanced')">
+      <span class="tab-level">Level III</span>
+      Advanced · Seminary
+    </button>
+  </div>
+
+  <div class="quiz-panel active" id="quiz-foundational">
+    <div class="quiz-header">
+      <h3>Foundational Quiz</h3>
+      <p>The basics: what each piece is, what it represents, and key references from Ephesians 6.</p>
+    </div>
+    <div class="quiz-progress">
+      <span id="progress-text-foundational">Question 1 of 8</span>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill-foundational" style="width: 12.5%"></div></div>
+    </div>
+    <div id="questions-foundational"></div>
+    <div class="quiz-results" id="results-foundational"></div>
+  </div>
+
+  <div class="quiz-panel" id="quiz-intermediate">
+    <div class="quiz-header">
+      <h3>Intermediate Quiz</h3>
+      <p>Theology, context, and application of the passage as a whole.</p>
+    </div>
+    <div class="quiz-progress">
+      <span id="progress-text-intermediate">Question 1 of 8</span>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill-intermediate" style="width: 12.5%"></div></div>
+    </div>
+    <div id="questions-intermediate"></div>
+    <div class="quiz-results" id="results-intermediate"></div>
+  </div>
+
+  <div class="quiz-panel" id="quiz-advanced">
+    <div class="quiz-header">
+      <h3>Advanced · Seminary Level</h3>
+      <p>Greek terminology, Old Testament background, exegetical nuance, and theological depth.</p>
+    </div>
+    <div class="quiz-progress">
+      <span id="progress-text-advanced">Question 1 of 8</span>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill-advanced" style="width: 12.5%"></div></div>
+    </div>
+    <div id="questions-advanced"></div>
+    <div class="quiz-results" id="results-advanced"></div>
+  </div>
+</section>
+
+<!-- Reflection Questions -->
+<section id="reflection" class="reflection-section reveal">
+  <div class="section-label">Apply the Word</div>
+  <h2 class="section-title">Questions for Reflection</h2>
+
+  <div class="reflection-question">
+    <div class="reflection-number">I.</div>
+    <div class="reflection-text">Which piece of the armor do you most often forget to "put on" in your daily life? What would it look like this week to wear it intentionally?</div>
+  </div>
+
+  <div class="reflection-question">
+    <div class="reflection-number">II.</div>
+    <div class="reflection-text">When you face conflict, do you instinctively see "flesh and blood" as the enemy, or do you discern the spiritual battle behind it? How might verse 12 change how you respond to difficult people?</div>
+  </div>
+
+  <div class="reflection-question">
+    <div class="reflection-number">III.</div>
+    <div class="reflection-text">Paul uses the word "stand" four times. In what area of your life is God calling you to simply stand firm rather than retreat or run?</div>
+  </div>
+
+  <div class="reflection-question">
+    <div class="reflection-number">IV.</div>
+    <div class="reflection-text">The sword of the Spirit is the Word of God. Do you have Scripture ready to speak when temptation comes? What is one verse you could commit to memory this week?</div>
+  </div>
+
+  <div class="reflection-question">
+    <div class="reflection-number">V.</div>
+    <div class="reflection-text">Paul, though an apostle in chains, asked for prayer for boldness. Who in your life needs you to intercede for them today — and who can you ask to pray for you?</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-ornament">✦ ✦ ✦</div>
+  <p class="footer-verse">"Be strong in the Lord and in his mighty power."</p>
+  <p class="footer-ref">— Ephesians 6:10</p>
+  <div class="footer-credit">An Interactive Study Guide</div>
+</footer>
+
+<script>
+  // Armor data
+  const armorData = [
+    {
+      name: "Belt of Truth",
+      represents: "Integrity & God's Truth",
+      verse: "Stand firm then, with the belt of truth buckled around your waist. (v. 14a)",
+      svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="12" y="40" width="76" height="20" rx="2" fill="#7a5c35" stroke="#b08d57" stroke-width="1.5"/>
+        <rect x="38" y="36" width="24" height="28" rx="2" fill="#e8c872" stroke="#b08d57" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="5" fill="#8b2525" stroke="#7a5c35" stroke-width="1"/>
+        <rect x="20" y="47" width="6" height="6" fill="#b08d57"/>
+        <rect x="74" y="47" width="6" height="6" fill="#b08d57"/>
+        <rect x="30" y="47" width="3" height="6" fill="#b08d57"/>
+        <rect x="67" y="47" width="3" height="6" fill="#b08d57"/>
+      </svg>`,
+      ancient: "The Roman soldier's belt (<em>cingulum</em>) was the foundation of his uniform. It held the tunic in place so he could move freely, and it supported the sheath for his sword. Without the belt, nothing else stayed in place.",
+      spiritual: "Truth — both <em>the</em> Truth (the gospel, God's Word) and <em>truthfulness</em> (integrity, honesty) — is what holds our spiritual life together. A life built on deception, hypocrisy, or half-truths cannot stand. When we walk in truth, every other piece of armor finds its place.",
+      crossRefs: [
+        { ref: "John 14:6", text: "Jesus answered, 'I am the way and the truth and the life.'" },
+        { ref: "John 8:32", text: "Then you will know the truth, and the truth will set you free." },
+        { ref: "John 17:17", text: "Sanctify them by the truth; your word is truth." }
+      ],
+      reflection: "Where might you be loose with truth in your daily life? Where does the enemy use deception — about God, about yourself, about others — to destabilize you?"
+    },
+    {
+      name: "Breastplate of Righteousness",
+      represents: "Christ's Righteousness & Holy Living",
+      verse: "...with the breastplate of righteousness in place. (v. 14b)",
+      svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 25 20 L 75 20 L 80 35 L 78 75 L 50 85 L 22 75 L 20 35 Z" fill="#b08d57" stroke="#7a5c35" stroke-width="1.5"/>
+        <path d="M 25 20 L 75 20 L 80 35 L 78 75 L 50 85 L 22 75 L 20 35 Z" fill="url(#shine1)" opacity="0.4"/>
+        <defs><linearGradient id="shine1" x1="0" x2="1"><stop offset="0" stop-color="#e8c872"/><stop offset="1" stop-color="transparent"/></linearGradient></defs>
+        <path d="M 30 30 L 70 30 M 30 42 L 70 42 M 32 54 L 68 54 M 34 66 L 66 66" stroke="#7a5c35" stroke-width="1"/>
+        <circle cx="50" cy="48" r="4" fill="#8b2525" stroke="#e8c872" stroke-width="1"/>
+      </svg>`,
+      ancient: "The Roman breastplate (<em>lorica</em>) was a heavy bronze or iron chest protector covering vital organs — especially the heart. A soldier without one was a dead man.",
+      spiritual: "Righteousness has two dimensions. First, the <em>imputed</em> righteousness of Christ given to us through faith (2 Cor 5:21) — this is what protects our heart from the enemy's accusations. Second, <em>practical</em> righteousness — daily choices to live holy, just, and upright lives. When you sin, the enemy accuses; when you live in Christ's righteousness, you have a shield over your heart.",
+      crossRefs: [
+        { ref: "2 Corinthians 5:21", text: "God made him who had no sin to be sin for us, so that in him we might become the righteousness of God." },
+        { ref: "Philippians 3:9", text: "...not having a righteousness of my own that comes from the law, but that which is through faith in Christ." },
+        { ref: "Romans 13:14", text: "Clothe yourselves with the Lord Jesus Christ." }
+      ],
+      reflection: "Do you try to earn righteousness, or rest in Christ's? How does knowing you are already righteous in Him free you to then <em>live</em> righteously?"
+    },
+    {
+      name: "Shoes of the Gospel",
+      represents: "Readiness & Peace",
+      verse: "...and with your feet fitted with the readiness that comes from the gospel of peace. (v. 15)",
+      svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 55 L 25 35 L 45 30 L 65 32 L 80 45 L 82 62 L 78 70 L 22 70 L 18 62 Z" fill="#7a5c35" stroke="#b08d57" stroke-width="1.5"/>
+        <path d="M 30 40 L 40 38 M 45 38 L 55 38 M 60 40 L 70 43 M 35 48 L 45 48 M 50 48 L 65 50" stroke="#b08d57" stroke-width="1.2"/>
+        <rect x="22" y="70" width="58" height="5" fill="#2b1f14"/>
+        <circle cx="30" cy="75" r="3" fill="#b08d57"/>
+        <circle cx="50" cy="75" r="3" fill="#b08d57"/>
+        <circle cx="70" cy="75" r="3" fill="#b08d57"/>
+        <path d="M 30 52 L 36 50 M 40 54 L 48 54 M 55 54 L 65 52" stroke="#e8c872" stroke-width="0.8"/>
+      </svg>`,
+      ancient: "Roman military boots (<em>caligae</em>) had iron hobnails in the soles — providing traction on rough ground and helping the soldier stand his ground without slipping. Caesar said his legions' footwear was one of their greatest advantages.",
+      spiritual: "The gospel of peace gives us firm footing. Peace with God (Romans 5:1) means we don't fight <em>for</em> victory — we fight <em>from</em> victory. Readiness means we are prepared to share the gospel when opportunities arise and to walk in peace even when chaos surrounds us.",
+      crossRefs: [
+        { ref: "Romans 5:1", text: "Therefore, since we have been justified through faith, we have peace with God through our Lord Jesus Christ." },
+        { ref: "Isaiah 52:7", text: "How beautiful on the mountains are the feet of those who bring good news." },
+        { ref: "Romans 10:15", text: "How beautiful are the feet of those who bring good news!" }
+      ],
+      reflection: "Are your spiritual 'feet' planted in peace, or shaken by circumstances? Are you ready to share the good news when the moment comes?"
+    },
+    {
+      name: "Shield of Faith",
+      represents: "Trust in God's Character & Promises",
+      verse: "In addition to all this, take up the shield of faith, with which you can extinguish all the flaming arrows of the evil one. (v. 16)",
+      svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 15 C 30 20 20 25 20 25 L 22 55 C 22 70 35 82 50 88 C 65 82 78 70 78 55 L 80 25 C 80 25 70 20 50 15 Z" fill="#7a5c35" stroke="#b08d57" stroke-width="1.5"/>
+        <path d="M 50 15 C 30 20 20 25 20 25 L 22 55 C 22 70 35 82 50 88 C 65 82 78 70 78 55 L 80 25 C 80 25 70 20 50 15 Z" fill="url(#shine2)" opacity="0.3"/>
+        <defs><linearGradient id="shine2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e8c872"/><stop offset="1" stop-color="transparent"/></linearGradient></defs>
+        <circle cx="50" cy="50" r="10" fill="#b08d57" stroke="#e8c872" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="4" fill="#8b2525"/>
+        <path d="M 50 25 L 50 75 M 30 50 L 70 50" stroke="#b08d57" stroke-width="1" opacity="0.6"/>
+      </svg>`,
+      ancient: "The Roman <em>scutum</em> was a large, rectangular shield about 4 feet tall. Before battle, soldiers soaked the leather covering in water so that flaming arrows would be extinguished on impact. Soldiers could link shields together in a formation called the <em>testudo</em> (turtle) for full protection.",
+      spiritual: "Faith is <em>trust</em> — actively believing that God is who He says He is and will do what He says He will do. When the enemy's flaming arrows come (doubt, fear, lust, despair, accusation), faith extinguishes them. Notice we are not alone — believers link shields together in community.",
+      crossRefs: [
+        { ref: "Hebrews 11:1", text: "Now faith is confidence in what we hope for and assurance about what we do not see." },
+        { ref: "1 John 5:4", text: "This is the victory that has overcome the world, even our faith." },
+        { ref: "1 Peter 5:8–9", text: "Be alert and of sober mind. Your enemy the devil prowls around like a roaring lion looking for someone to devour. Resist him, standing firm in the faith." }
+      ],
+      reflection: "What 'flaming arrows' do you face most often? What specific promises of God do you raise as your shield against them?"
+    },
+    {
+      name: "Helmet of Salvation",
+      represents: "Assurance & Hope",
+      verse: "Take the helmet of salvation... (v. 17a)",
+      svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 25 50 C 25 30 35 18 50 18 C 65 18 75 30 75 50 L 75 58 L 68 58 L 68 70 L 32 70 L 32 58 L 25 58 Z" fill="#b08d57" stroke="#7a5c35" stroke-width="1.5"/>
+        <path d="M 25 50 C 25 30 35 18 50 18 C 65 18 75 30 75 50 L 75 58 L 68 58 L 68 70 L 32 70 L 32 58 L 25 58 Z" fill="url(#shine3)" opacity="0.4"/>
+        <defs><linearGradient id="shine3" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e8c872"/><stop offset="1" stop-color="transparent"/></linearGradient></defs>
+        <path d="M 50 12 L 50 25 M 45 25 L 55 25" stroke="#8b2525" stroke-width="3"/>
+        <path d="M 50 12 L 52 10 L 54 14 L 50 12" fill="#8b2525"/>
+        <path d="M 35 22 L 65 22" stroke="#7a5c35" stroke-width="1"/>
+        <rect x="48" y="55" width="4" height="8" fill="#2b1f14"/>
+        <path d="M 30 45 L 70 45" stroke="#e8c872" stroke-width="0.8" opacity="0.7"/>
+      </svg>`,
+      ancient: "The Roman helmet (<em>galea</em>) protected the head from fatal blows. In 1 Thessalonians 5:8, Paul clarifies: 'the hope of salvation as a helmet.'",
+      spiritual: "The battleground is often in the mind. The enemy attacks our thoughts with doubt ('Are you really saved?'), shame ('You've gone too far'), and despair ('Nothing will change'). The helmet is the <em>assurance</em> of our salvation — the settled confidence that we belong to Christ, our sins are forgiven, and our future is secure.",
+      crossRefs: [
+        { ref: "1 Thessalonians 5:8", text: "...putting on faith and love as a breastplate, and the hope of salvation as a helmet." },
+        { ref: "Romans 8:38–39", text: "Neither death nor life... will be able to separate us from the love of God that is in Christ Jesus our Lord." },
+        { ref: "Philippians 4:7", text: "And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus." }
+      ],
+      reflection: "What lies does the enemy whisper about your salvation or worth? How does rehearsing the gospel daily protect your mind?"
+    },
+    {
+      name: "Sword of the Spirit",
+      represents: "The Word of God",
+      verse: "...and the sword of the Spirit, which is the word of God. (v. 17b)",
+      svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 10 L 54 70 L 50 75 L 46 70 Z" fill="#e8c872" stroke="#7a5c35" stroke-width="1.5"/>
+        <path d="M 50 10 L 54 70 L 50 75 L 46 70 Z" fill="url(#shine4)" opacity="0.5"/>
+        <defs><linearGradient id="shine4" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.6"/><stop offset="1" stop-color="transparent"/></linearGradient></defs>
+        <line x1="50" y1="15" x2="50" y2="68" stroke="#7a5c35" stroke-width="0.5"/>
+        <rect x="36" y="70" width="28" height="6" rx="1" fill="#8b2525" stroke="#7a5c35" stroke-width="1"/>
+        <rect x="45" y="76" width="10" height="12" fill="#7a5c35" stroke="#2b1f14" stroke-width="1"/>
+        <circle cx="50" cy="88" r="3" fill="#e8c872" stroke="#7a5c35" stroke-width="1"/>
+        <circle cx="50" cy="82" r="1.5" fill="#e8c872"/>
+      </svg>`,
+      ancient: "The Roman <em>gladius</em> was a short, double-edged sword — about 20 inches long. Unlike a long sword, it was made for close, precise combat. Paul uses the Greek word <em>machaira</em> for this short, surgical blade.",
+      spiritual: "The only offensive weapon in the armor. The Greek for 'word' here is <em>rhema</em> — not the entire Bible in general, but the specific spoken Word wielded in a moment of need. Jesus modeled this in Matthew 4, quoting Scripture three times against Satan: 'It is written.' The Spirit empowers the Word; the Word wields the Spirit.",
+      crossRefs: [
+        { ref: "Hebrews 4:12", text: "For the word of God is alive and active. Sharper than any double-edged sword..." },
+        { ref: "Matthew 4:4, 7, 10", text: "Jesus answered, 'It is written...'" },
+        { ref: "Psalm 119:11", text: "I have hidden your word in my heart that I might not sin against you." }
+      ],
+      reflection: "Can you wield the Word of God in the moment of temptation? What verses do you have 'sharpened' and ready for the battles you most often face?"
+    }
+  ];
+
+  // Render cards
+  const grid = document.getElementById('armorGrid');
+  armorData.forEach((armor, idx) => {
+    const num = String(idx + 1).padStart(2, '0');
+    const card = document.createElement('div');
+    card.className = 'armor-card';
+    card.onclick = () => openModal(idx);
+    card.innerHTML = `
+      <div class="armor-icon">
+        <span class="armor-number">${num}</span>
+        ${armor.svg}
+      </div>
+      <div class="armor-content">
+        <h3 class="armor-name">${armor.name}</h3>
+        <div class="armor-represents">${armor.represents}</div>
+        <p class="armor-verse">${armor.verse}</p>
+        <div class="armor-expand">
+          <span>Study Deeper</span>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Modal
+  function openModal(idx) {
+    const armor = armorData[idx];
+    const content = document.getElementById('modalContent');
+    content.innerHTML = `
+      <h3>${armor.name}</h3>
+      <div class="modal-subtitle">${armor.represents}</div>
+
+      <h4>The Ancient Picture</h4>
+      <p>${armor.ancient}</p>
+
+      <h4>The Spiritual Reality</h4>
+      <p>${armor.spiritual}</p>
+
+      <h4>Cross-References</h4>
+      ${armor.crossRefs.map(r => `
+        <div class="cross-ref">
+          <strong>${r.ref}</strong>
+          ${r.text}
+        </div>
+      `).join('')}
+
+      <h4>For Reflection</h4>
+      <div class="reflection-box">
+        <p>${armor.reflection}</p>
+      </div>
+    `;
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Accordion
+  function toggleAccordion(header) {
+    const item = header.parentElement;
+    const content = header.nextElementSibling;
+    const isActive = item.classList.contains('active');
+
+    document.querySelectorAll('.accordion-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.accordion-content').style.maxHeight = '0';
+    });
+
+    if (!isActive) {
+      item.classList.add('active');
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+  }
+
+  // Menu toggle
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ============ QUIZZES ============
+  const quizzes = {
+    foundational: [
+      {
+        q: "According to Ephesians 6:10, where does the believer's strength come from?",
+        opts: [
+          "From our own willpower and discipline",
+          "From the Lord and His mighty power",
+          "From the church community",
+          "From memorizing Scripture"
+        ],
+        correct: 1,
+        explain: "Paul begins with the source: <em>'be strong in the Lord and in his mighty power.'</em> All spiritual strength is borrowed — drawn from Christ, not manufactured by us.",
+        ref: "Ephesians 6:10"
+      },
+      {
+        q: "What is the <em>first</em> piece of armor Paul lists?",
+        opts: [
+          "The helmet of salvation",
+          "The shield of faith",
+          "The belt of truth",
+          "The breastplate of righteousness"
+        ],
+        correct: 2,
+        explain: "The belt of truth is listed first (v. 14). In Roman armor, the belt held everything else together — a picture of how truth is the foundation of all spiritual life.",
+        ref: "Ephesians 6:14"
+      },
+      {
+        q: "What does the <em>breastplate</em> represent?",
+        opts: [
+          "Faith",
+          "Righteousness",
+          "Peace",
+          "The Word of God"
+        ],
+        correct: 1,
+        explain: "The breastplate of righteousness protects the heart — both the imputed righteousness of Christ that covers us and the practical righteousness we live out daily.",
+        ref: "Ephesians 6:14"
+      },
+      {
+        q: "The feet are fitted with readiness that comes from the gospel of ___.",
+        opts: [
+          "Grace",
+          "Peace",
+          "Love",
+          "Hope"
+        ],
+        correct: 1,
+        explain: "The <em>gospel of peace</em> (v. 15). Peace with God gives us firm footing; we fight from victory, not for it.",
+        ref: "Ephesians 6:15"
+      },
+      {
+        q: "What does the shield of faith do?",
+        opts: [
+          "Cuts down enemies",
+          "Extinguishes the flaming arrows of the evil one",
+          "Identifies fellow soldiers",
+          "Signals the trumpet call"
+        ],
+        correct: 1,
+        explain: "Roman shields were soaked in water before battle so fire-tipped arrows would be quenched on impact. Faith does the same to the enemy's attacks of doubt, fear, and accusation.",
+        ref: "Ephesians 6:16"
+      },
+      {
+        q: "The <em>sword of the Spirit</em> is identified as…",
+        opts: [
+          "Our prayers",
+          "Our testimony",
+          "The word of God",
+          "The preaching of the gospel"
+        ],
+        correct: 2,
+        explain: "Paul explicitly says the sword of the Spirit <em>is</em> the word of God — the only offensive weapon in the armor list.",
+        ref: "Ephesians 6:17"
+      },
+      {
+        q: "According to verse 12, who is the believer's real struggle against?",
+        opts: [
+          "Sinful people around us",
+          "Our own flesh",
+          "Rulers, authorities, and spiritual forces of evil",
+          "Government systems"
+        ],
+        correct: 2,
+        explain: "<em>'Our struggle is not against flesh and blood'</em> — the real battle is spiritual. This reframes every conflict we face.",
+        ref: "Ephesians 6:12"
+      },
+      {
+        q: "After listing the armor, Paul commands the believer to…",
+        opts: [
+          "Attack the enemy boldly",
+          "Pray in the Spirit on all occasions",
+          "Evangelize the lost",
+          "Fast for forty days"
+        ],
+        correct: 1,
+        explain: "Verse 18: <em>'pray in the Spirit on all occasions with all kinds of prayers and requests.'</em> Prayer is the atmosphere in which all the armor functions.",
+        ref: "Ephesians 6:18"
+      }
+    ],
+
+    intermediate: [
+      {
+        q: "Paul repeats the command to <em>stand</em> four times in this passage. What does this repetition emphasize?",
+        opts: [
+          "We must attack and advance aggressively",
+          "We hold ground Christ has already won",
+          "We should never sit down in God's presence",
+          "We must stand physically while praying"
+        ],
+        correct: 1,
+        explain: "The Greek <em>stēnai</em> is a defensive military term — holding position. The victory was already accomplished at the cross (Colossians 2:15); our calling is to stand firm in what Christ has won.",
+        ref: "Ephesians 6:11, 13, 14; Colossians 2:15"
+      },
+      {
+        q: "Why is the armor of God likely drawn from Roman military imagery?",
+        opts: [
+          "Paul was a former Roman soldier",
+          "Paul was chained to a Roman soldier as he wrote",
+          "The Ephesians were Roman citizens",
+          "Rome was the greatest empire of the time"
+        ],
+        correct: 1,
+        explain: "Paul wrote Ephesians from Roman imprisonment, likely chained to a guard (Acts 28:16, 20). The imagery was literally in front of him as he wrote.",
+        ref: "Ephesians 3:1, 6:20; Acts 28:16"
+      },
+      {
+        q: "In 1 Thessalonians 5:8, Paul describes the helmet slightly differently. What does he call it there?",
+        opts: [
+          "The helmet of righteousness",
+          "The helmet of the Spirit",
+          "The helmet of the hope of salvation",
+          "The helmet of faith"
+        ],
+        correct: 2,
+        explain: "<em>'Putting on faith and love as a breastplate, and the hope of salvation as a helmet.'</em> The helmet protects the mind by anchoring us in the <em>assurance</em> of salvation — present reality and future hope.",
+        ref: "1 Thessalonians 5:8"
+      },
+      {
+        q: "Five of the six pieces of armor are defensive. Only one is offensive. What does this emphasize about spiritual warfare?",
+        opts: [
+          "Believers should avoid all conflict",
+          "The emphasis is on standing firm, not aggressive assault",
+          "Defense is more important than offense in all of life",
+          "The sword is the only piece we really need"
+        ],
+        correct: 1,
+        explain: "The weighting is intentional — Paul's main call is to <em>stand</em>. The enemy's strategy is to dislodge us from our position in Christ; our response is steadfast resistance, not reckless charging.",
+        ref: "Ephesians 6:11, 13"
+      },
+      {
+        q: "Paul instructs believers to pray for him that he would speak fearlessly. What does this teach about spiritual warfare?",
+        opts: [
+          "Apostles need more prayer than regular believers",
+          "Even mature believers need intercession; warfare is communal",
+          "Preaching is the highest form of warfare",
+          "Boldness is given only to those in ministry"
+        ],
+        correct: 1,
+        explain: "Paul, <em>an apostle in chains</em>, still needed prayer for boldness. Spiritual warfare is never solo — we link shields with fellow believers and carry each other in prayer.",
+        ref: "Ephesians 6:19–20"
+      },
+      {
+        q: "What is the relationship between the armor of God and the indicatives of Ephesians chapters 1–3?",
+        opts: [
+          "They are unrelated topics in the letter",
+          "The armor is how we <em>earn</em> the blessings of chapters 1–3",
+          "The armor is how we <em>live out</em> the identity we already have in Christ",
+          "The armor replaces our need for the gospel"
+        ],
+        correct: 2,
+        explain: "Ephesians 1–3 tells us who we <em>are</em> in Christ — chosen, adopted, seated with Him. Ephesians 4–6 tells us how to <em>live</em> that out. The armor is the climactic call to stand in the identity already given to us.",
+        ref: "Ephesians 1:3–14, 2:6, 6:10–20"
+      },
+      {
+        q: "What does 'flaming arrows of the evil one' (v. 16) most likely refer to in the believer's experience?",
+        opts: [
+          "Physical persecution and bodily harm",
+          "Temptations, doubts, accusations, and lies",
+          "Natural disasters and misfortune",
+          "False teachers exclusively"
+        ],
+        correct: 1,
+        explain: "Roman fire-arrows were designed to ignite and spread panic. Spiritually, these correspond to the inner attacks of doubt, lust, fear, shame, and accusation — which faith in God's character and promises extinguishes.",
+        ref: "Ephesians 6:16; 1 Peter 5:8–9"
+      },
+      {
+        q: "Paul says prayer should be offered 'in the Spirit on all occasions with all kinds of prayers.' In the Greek, the word 'all' appears how many times in verse 18?",
+        opts: [
+          "Two times",
+          "Three times",
+          "Four times",
+          "It doesn't appear at all"
+        ],
+        correct: 2,
+        explain: "The word <em>pas</em> (all/every) appears four times in verse 18: all occasions, all kinds of prayers, all perseverance, all the saints. The repetition underscores the totalizing role of prayer in spiritual life.",
+        ref: "Ephesians 6:18"
+      }
+    ],
+
+    advanced: [
+      {
+        q: "The Greek word translated 'stand' (<em>stēnai</em>, also <em>histēmi</em>) appears four times in Ephesians 6:11–14. In military usage, what does this verb specifically connote?",
+        opts: [
+          "To advance into enemy territory",
+          "To hold one's position against an attacking force",
+          "To retreat in orderly fashion",
+          "To patrol defensively"
+        ],
+        correct: 1,
+        explain: "<em>Stēnai</em> was a technical military term for holding the battle line against assault — not charging, not retreating. Theologically, this grounds spiritual warfare in Christ's finished work: we defend territory already conquered (cf. Colossians 2:15).",
+        ref: "Ephesians 6:11, 13, 14; Colossians 2:15"
+      },
+      {
+        q: "The armor imagery in Ephesians 6 draws heavily on Isaiah. Which of these Old Testament passages most directly shapes Paul's picture?",
+        opts: [
+          "Isaiah 6:1–8 (Isaiah's commissioning)",
+          "Isaiah 40:1–11 (comfort for Jerusalem)",
+          "Isaiah 59:17 and 11:5 (Yahweh as divine warrior)",
+          "Isaiah 53:1–12 (the Suffering Servant)"
+        ],
+        correct: 2,
+        explain: "Isaiah 59:17 describes Yahweh putting on <em>righteousness as a breastplate</em> and <em>the helmet of salvation</em>; Isaiah 11:5 says <em>righteousness will be his belt</em>. Paul is saying the armor we wear is <em>God's own armor</em> — we participate in the Divine Warrior's equipment.",
+        ref: "Isaiah 11:5, 59:17; cf. Wisdom of Solomon 5:17–20"
+      },
+      {
+        q: "The Greek word for the 'sword' of the Spirit is <em>machaira</em>. What does this word specifically denote, and what theological weight does it carry?",
+        opts: [
+          "A long broadsword (<em>rhomphaia</em>) for sweeping strikes — symbolizing comprehensive Scripture knowledge",
+          "A short, double-edged dagger for close, precise combat — symbolizing the Word applied surgically in specific moments",
+          "A ceremonial sword worn only by officers — symbolizing authority over demons",
+          "A sacrificial knife — symbolizing consecration"
+        ],
+        correct: 1,
+        explain: "<em>Machaira</em> is the Roman <em>gladius</em>-type short sword (~20 inches), used for close combat and precise strikes. Pairing this with <em>rhema</em> (the spoken word, not <em>logos</em> as abstract Word) suggests Scripture applied pointedly in a moment of temptation — exactly how Christ used it in Matthew 4.",
+        ref: "Ephesians 6:17; Matthew 4:1–11; Hebrews 4:12"
+      },
+      {
+        q: "Paul uses the verb <em>endusasthe</em> ('put on') in verse 11. What grammatical and theological significance does this carry?",
+        opts: [
+          "It is a present passive, indicating the armor is put on us without our participation",
+          "It is an aorist middle imperative, indicating a decisive, personal act of putting on the armor upon oneself",
+          "It is a future indicative, indicating a coming reality we await",
+          "It is a perfect tense, indicating a completed action in the past"
+        ],
+        correct: 1,
+        explain: "The aorist middle imperative <em>endusasthe</em> calls for a decisive, self-involved action — 'put on yourselves' the armor. The middle voice emphasizes personal agency; the aorist emphasizes urgency and decisiveness. This is not a gradual acquisition but a decisive clothing, echoing <em>endusasthe ton Kyrion Iēsoun Christon</em> in Romans 13:14.",
+        ref: "Ephesians 6:11; Romans 13:14; Colossians 3:10"
+      },
+      {
+        q: "Verse 12 references <em>ta pneumatika tēs ponērias en tois epouraniois</em> ('spiritual forces of evil in the heavenly realms'). How should 'heavenly realms' (<em>epourania</em>) be understood in Ephesians?",
+        opts: [
+          "As heaven itself, the dwelling place of God alone",
+          "As the earthly atmosphere where demonic forces operate",
+          "As the spiritual dimension where both Christ's reign and spiritual powers currently contend — where believers are already seated with Christ",
+          "As a future realm only accessible after death"
+        ],
+        correct: 2,
+        explain: "<em>Epouraniois</em> occurs five times in Ephesians (1:3, 1:20, 2:6, 3:10, 6:12) and refers to the spiritual dimension above the earthly. Crucially, believers are already <em>seated with Christ in the heavenly realms</em> (2:6) — the same realm where we wrestle (6:12). Our position is secure even as the battle continues.",
+        ref: "Ephesians 1:3, 1:20, 2:6, 3:10, 6:12"
+      },
+      {
+        q: "Paul uses <em>rhema</em> (not <em>logos</em>) for 'word of God' in verse 17. What distinction does many scholars draw between these terms in this context?",
+        opts: [
+          "They are perfectly interchangeable with no distinction",
+          "<em>Logos</em> = Christ the eternal Word; <em>rhema</em> = the specific, spoken utterance of Scripture wielded in context",
+          "<em>Rhema</em> = the Old Testament; <em>logos</em> = the New Testament",
+          "<em>Rhema</em> refers only to prophecy, not written Scripture"
+        ],
+        correct: 1,
+        explain: "While the two terms overlap significantly, <em>rhema</em> often emphasizes the spoken, specific utterance — the Spirit bringing a particular Scripture to mind in a particular moment. This matches Jesus' pattern in Matthew 4: not reciting the whole Torah, but wielding specific texts against specific temptations. (Note: some scholars caution against overstating this distinction — but the contextual nuance holds.)",
+        ref: "Ephesians 6:17; Matthew 4:4, 7, 10; Romans 10:17"
+      },
+      {
+        q: "The structure of Ephesians follows a classic Pauline pattern of <em>indicative → imperative</em>. How does 6:10–20 function within this framework?",
+        opts: [
+          "As a disconnected appendix on spiritual warfare",
+          "As the climactic imperative that presupposes and applies the indicatives of chapters 1–3",
+          "As the theological foundation that chapters 1–3 build upon",
+          "As a parenthetical aside unrelated to the main argument"
+        ],
+        correct: 1,
+        explain: "Ephesians 1–3 are predominantly indicative (declarative of what God has done in Christ); chapters 4–6 are predominantly imperative (how to live it out). 6:10–20 is the <em>climactic</em> imperative — 'be strong in the Lord' presupposes union with Christ, adoption, seating in the heavenlies, and the Spirit's seal. Without chapters 1–3, the armor is moralism; with them, it is empowered obedience.",
+        ref: "Ephesians 1:3–14, 2:1–10, 4:1, 6:10"
+      },
+      {
+        q: "Some interpreters (e.g., Clinton Arnold) have argued Ephesians 6:10–20 reflects the pastoral context of Ephesus specifically. What historical feature of Ephesus makes this reading compelling?",
+        opts: [
+          "Ephesus was a major Roman military garrison",
+          "Ephesus was famous for the cult of Artemis and widespread magical/occult practices (cf. Acts 19:19)",
+          "Ephesus was the birthplace of Stoic philosophy",
+          "Ephesus had the largest synagogue in Asia Minor"
+        ],
+        correct: 1,
+        explain: "Ephesus was a center of magical practice — Acts 19:19 records new converts burning scrolls worth 50,000 drachmas. The temple of Artemis was one of the Seven Wonders of the ancient world. Clinton Arnold's work (<em>Ephesians: Power and Magic</em>) argues Paul's heavy emphasis on spiritual powers throughout Ephesians (1:21, 2:2, 3:10, 6:12) directly addresses this context — assuring converts that Christ's power surpasses any occult force they formerly feared.",
+        ref: "Acts 19:11–20; Ephesians 1:21, 2:2, 3:10, 6:12"
+      }
+    ]
+  };
+
+  const quizState = {
+    foundational: { current: 0, correct: 0, answers: [] },
+    intermediate: { current: 0, correct: 0, answers: [] },
+    advanced: { current: 0, correct: 0, answers: [] }
+  };
+
+  function switchQuiz(level) {
+    document.querySelectorAll('.quiz-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.quiz-panel').forEach(p => p.classList.remove('active'));
+    event.target.closest('.quiz-tab').classList.add('active');
+    document.getElementById('quiz-' + level).classList.add('active');
+  }
+
+  function renderQuestion(level, idx) {
+    const quiz = quizzes[level];
+    const q = quiz[idx];
+    const letters = ['A', 'B', 'C', 'D'];
+    const container = document.getElementById('questions-' + level);
+
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = `q-${level}-${idx}`;
+    card.innerHTML = `
+      <div class="question-number">Question ${idx + 1} of ${quiz.length}</div>
+      <div class="question-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((opt, i) => `
+          <button class="option" onclick="answerQuestion('${level}', ${idx}, ${i})">
+            <span class="letter">${letters[i]}</span>
+            <span>${opt}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div class="feedback" id="feedback-${level}-${idx}">
+        <div class="feedback-label">Insight</div>
+        <div class="feedback-text">${q.explain}</div>
+        <div class="feedback-ref">— ${q.ref}</div>
+      </div>
+    `;
+    container.appendChild(card);
+  }
+
+  function answerQuestion(level, idx, selected) {
+    const state = quizState[level];
+    if (state.answers[idx] !== undefined) return;
+
+    const quiz = quizzes[level];
+    const q = quiz[idx];
+    const card = document.getElementById(`q-${level}-${idx}`);
+    const options = card.querySelectorAll('.option');
+    const isCorrect = selected === q.correct;
+
+    state.answers[idx] = selected;
+    if (isCorrect) state.correct++;
+
+    options.forEach((opt, i) => {
+      opt.disabled = true;
+      if (i === q.correct) {
+        opt.classList.add('correct');
+      } else if (i === selected) {
+        opt.classList.add('incorrect');
+      } else {
+        opt.classList.add('dimmed');
+      }
+    });
+
+    document.getElementById(`feedback-${level}-${idx}`).classList.add('show');
+
+    setTimeout(() => {
+      state.current = idx + 1;
+      updateProgress(level);
+      if (state.current < quiz.length) {
+        renderQuestion(level, state.current);
+        setTimeout(() => {
+          document.getElementById(`q-${level}-${state.current}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      } else {
+        showResults(level);
+      }
+    }, 900);
+  }
+
+  function updateProgress(level) {
+    const state = quizState[level];
+    const total = quizzes[level].length;
+    const completed = state.current;
+    const pct = (completed / total) * 100;
+    document.getElementById('progress-fill-' + level).style.width = pct + '%';
+    const shown = Math.min(completed + 1, total);
+    document.getElementById('progress-text-' + level).textContent = `Question ${shown} of ${total}`;
+    if (completed >= total) {
+      document.getElementById('progress-text-' + level).textContent = `Complete — ${state.correct} of ${total} correct`;
+    }
+  }
+
+  function showResults(level) {
+    const state = quizState[level];
+    const total = quizzes[level].length;
+    const pct = Math.round((state.correct / total) * 100);
+    const resultEl = document.getElementById('results-' + level);
+
+    let verdict, verse;
+    if (pct >= 90) {
+      verdict = "Exceptional. You have this passage deep in your bones.";
+      verse = '"Let the word of Christ dwell in you richly." — Colossians 3:16';
+    } else if (pct >= 75) {
+      verdict = "Strong work. A few areas to sharpen, but you're standing firm.";
+      verse = '"Study to show thyself approved unto God, a workman that needeth not to be ashamed." — 2 Timothy 2:15';
+    } else if (pct >= 50) {
+      verdict = "A solid start — keep pressing in. Review the explanations and try again.";
+      verse = '"As newborn babes, desire the sincere milk of the word, that ye may grow thereby." — 1 Peter 2:2';
+    } else {
+      verdict = "The groundwork is being laid. Go back, study the passage, and return.";
+      verse = '"Your word is a lamp for my feet, a light on my path." — Psalm 119:105';
+    }
+
+    resultEl.innerHTML = `
+      <div class="section-label">Quiz Complete</div>
+      <div class="results-score">${state.correct} / ${total}</div>
+      <div class="results-verdict">${verdict}</div>
+      <p class="results-verse">${verse}</p>
+      <button class="reset-btn" onclick="resetQuiz('${level}')">Retake This Quiz</button>
+    `;
+    resultEl.classList.add('show');
+    setTimeout(() => resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
+  }
+
+  function resetQuiz(level) {
+    quizState[level] = { current: 0, correct: 0, answers: [] };
+    document.getElementById('questions-' + level).innerHTML = '';
+    document.getElementById('results-' + level).classList.remove('show');
+    document.getElementById('results-' + level).innerHTML = '';
+    document.getElementById('progress-fill-' + level).style.width = (100 / quizzes[level].length) + '%';
+    document.getElementById('progress-text-' + level).textContent = `Question 1 of ${quizzes[level].length}`;
+    renderQuestion(level, 0);
+  }
+
+  // Initialize all three quizzes
+  renderQuestion('foundational', 0);
+  renderQuestion('intermediate', 0);
+  renderQuestion('advanced', 0);
+</script>
+
+</body>
+</html>
